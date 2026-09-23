@@ -47,8 +47,10 @@ Current member institutions of ONCRN are listed below.
 | The First People's Hospital of Yulin | 玉林市第一人民医院 |
 | Lixiang Eye Hospital of Soochow University | 苏州大学理想眼科医院 |
 
+[Member-location map / 成员单位分布地图](https://oncrn.github.io/#members)
+
 ## Website / 官方网站
 
 [https://oncrn.github.io/](https://oncrn.github.io/)
 
-The website uses static HTML and CSS, with no build dependencies, analytics, third-party images, or hospital logos. See [MAINTENANCE.md](MAINTENANCE.md) for maintenance and source verification notes.
+The website uses static HTML and CSS with a small JavaScript map, locally hosted Leaflet libraries, and attributed OpenStreetMap tiles. No build step, API key, analytics, or hospital logos are used. Member names, cities, and individual hospital map links remain available without JavaScript. See [MAINTENANCE.md](MAINTENANCE.md) for maintenance and source verification notes.

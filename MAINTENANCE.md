@@ -8,6 +8,8 @@ This repository publishes the official website of the Optic Neuritis Collaborati
 - `assets/site.css`: responsive layout and print styles; system fonts only.
 - `assets/oncrn-e1-wordmark.png`: approved E1 serif wordmark, with a forest-green crescent in the O and charcoal lettering; transparent PNG.
 - `assets/oncrn-e1-symbol.png`: companion O symbol for the browser icon and touch icon.
+- `assets/member-map.js`: progressively enhanced member-location map, initialized when the Members section approaches the viewport.
+- `assets/vendor/`: locally hosted Leaflet 1.9.4 (BSD-2-Clause) and Leaflet.markercluster 1.5.3 (MIT), with their licenses.
 - `.nojekyll`: publishes the static files without a Jekyll transformation.
 - `README.md`: concise public repository introduction.
 
@@ -30,6 +32,20 @@ Chinese center names follow the user-confirmed list and were cross-checked where
 - [The Second People's Hospital of Qinzhou institutional entry, National Population Health Science Data Center](https://csp.ncmi.cn/UsersInfo/UserUnit/UserUnitDetailWeb?uid=01409)
 
 The Qinzhou and Wuzhou hospital homepages did not respond during verification. Their Chinese names are consistent with the supplied list and the institutional sources above.
+
+## Member-location map
+
+The five city coordinates come from `contactsLocationsModule.locations[].geoPoint` in the public GX-ICON registry, checked on 2026-09-23. They are city-level locations, not hospital geocodes. Nanning includes the Wuming institution. Do not reposition city markers to imply campus precision without verifying an actual campus location.
+
+| City | Latitude | Longitude | Institutions |
+| --- | --- | --- | --- |
+| Nanning | 22.81667 | 108.31667 | 5 |
+| Qinzhou | 21.98247 | 108.65061 | 1 |
+| Wuzhou | 23.48054 | 111.28848 | 1 |
+| Yulin | 22.6305 | 110.14686 | 1 |
+| Suzhou | 31.30408 | 120.59538 | 1 |
+
+Institution names and map-query links live in `index.html`; map popups read that list to avoid maintaining duplicate names. The map uses normal on-demand [OpenStreetMap tiles](https://operations.osmfoundation.org/policies/tiles/) with visible attribution, no bulk downloads, and no API keys or analytics. Tiles require a third-party connection and may be unavailable in some networks. Hospital names, cities, and [Amap URI search links](https://developer.amap.com/api/uri-api/guide/search/search) remain usable without JavaScript or a basemap. Amap links search by institution name and city; they are not hard-coded campus destinations. No visitor geolocation is requested.
 
 ## Before publishing
 

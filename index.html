@@ -12,7 +12,12 @@
   <link rel="canonical" href="https://oncrn.github.io/">
   <link rel="icon" type="image/png" href="assets/oncrn-e1-symbol.png">
   <link rel="apple-touch-icon" href="assets/oncrn-e1-symbol.png">
+  <link rel="stylesheet" href="assets/vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="assets/vendor/leaflet-markercluster/MarkerCluster.css">
   <link rel="stylesheet" href="assets/site.css">
+  <script defer src="assets/vendor/leaflet/leaflet.js"></script>
+  <script defer src="assets/vendor/leaflet-markercluster/leaflet.markercluster.js"></script>
+  <script defer src="assets/member-map.js"></script>
   <title>Optic Neuritis Collaborative Research Network (ONCRN)</title>
 </head>
 <body>
@@ -120,16 +125,30 @@
         <h2>Member Institutions<span lang="zh-CN">成员单位</span></h2>
         <p>Current member institutions of ONCRN are listed below.</p>
         <p lang="zh-CN">以下为ONCRN目前成员单位。</p>
+        <div class="member-geography" hidden>
+          <div class="map-heading">
+            <h3>Geographic distribution<span lang="zh-CN">成员单位分布</span></h3>
+            <p class="map-total">9 institutions · 5 cities<br><span lang="zh-CN">9家成员单位 · 5座城市</span></p>
+          </div>
+          <div class="map-regions" role="group" aria-label="Map region / 地图区域">
+            <button type="button" data-region="all" aria-pressed="true">All <span lang="zh-CN">全部</span></button>
+            <button type="button" data-region="guangxi" aria-pressed="false">Guangxi <span lang="zh-CN">广西</span></button>
+            <button type="button" data-region="jiangsu" aria-pressed="false">Jiangsu <span lang="zh-CN">江苏</span></button>
+          </div>
+          <div id="member-map" aria-label="ONCRN member institution locations / ONCRN成员单位分布" aria-describedby="map-precision"></div>
+          <p id="map-status" class="source-note" role="status" hidden>Basemap unavailable. Hospital map links remain available below.<br><span lang="zh-CN">底图暂时无法加载，仍可通过下方链接查询医院位置。</span></p>
+          <p id="map-precision" class="source-note">City-level locations · Numbers indicate member institutions.<br><span lang="zh-CN">按所在城市标注，数字为成员单位数量。</span></p>
+        </div>
         <ol class="centers-list">
-          <li><span>The First Affiliated Hospital of Guangxi Medical University</span><span lang="zh-CN">广西医科大学第一附属医院</span></li>
-          <li><span>The Second Affiliated Hospital of Guangxi Medical University</span><span lang="zh-CN">广西医科大学第二附属医院</span></li>
-          <li><span>Guangxi Minzu Hospital</span><span lang="zh-CN">广西壮族自治区民族医院</span></li>
-          <li><span>Guangxi Jingliang Eye Hospital</span><span lang="zh-CN">广西晶亮眼科医院</span></li>
-          <li><span>Wuming Hospital of Guangxi Medical University</span><span lang="zh-CN">广西医科大学附属武鸣医院</span></li>
-          <li><span>The Second People's Hospital of Qinzhou</span><span lang="zh-CN">钦州市第二人民医院</span></li>
-          <li><span>Wuzhou Gongren Hospital</span><span lang="zh-CN">梧州市工人医院</span></li>
-          <li><span>The First People's Hospital of Yulin</span><span lang="zh-CN">玉林市第一人民医院</span></li>
-          <li><span>Lixiang Eye Hospital of Soochow University</span><span lang="zh-CN">苏州大学理想眼科医院</span></li>
+          <li data-city="nanning"><span>The First Affiliated Hospital of Guangxi Medical University</span><span lang="zh-CN">广西医科大学第一附属医院</span><div class="center-location"><small>Nanning, Guangxi · 广西南宁</small><a href="https://uri.amap.com/search?keyword=广西医科大学第一附属医院&amp;city=南宁&amp;view=map&amp;src=ONCRN&amp;callnative=0" target="_blank" rel="noopener">Map / 高德地图 ↗</a></div></li>
+          <li data-city="nanning"><span>The Second Affiliated Hospital of Guangxi Medical University</span><span lang="zh-CN">广西医科大学第二附属医院</span><div class="center-location"><small>Nanning, Guangxi · 广西南宁</small><a href="https://uri.amap.com/search?keyword=广西医科大学第二附属医院&amp;city=南宁&amp;view=map&amp;src=ONCRN&amp;callnative=0" target="_blank" rel="noopener">Map / 高德地图 ↗</a></div></li>
+          <li data-city="nanning"><span>Guangxi Minzu Hospital</span><span lang="zh-CN">广西壮族自治区民族医院</span><div class="center-location"><small>Nanning, Guangxi · 广西南宁</small><a href="https://uri.amap.com/search?keyword=广西壮族自治区民族医院&amp;city=南宁&amp;view=map&amp;src=ONCRN&amp;callnative=0" target="_blank" rel="noopener">Map / 高德地图 ↗</a></div></li>
+          <li data-city="nanning"><span>Guangxi Jingliang Eye Hospital</span><span lang="zh-CN">广西晶亮眼科医院</span><div class="center-location"><small>Nanning, Guangxi · 广西南宁</small><a href="https://uri.amap.com/search?keyword=广西晶亮眼科医院&amp;city=南宁&amp;view=map&amp;src=ONCRN&amp;callnative=0" target="_blank" rel="noopener">Map / 高德地图 ↗</a></div></li>
+          <li data-city="nanning"><span>Wuming Hospital of Guangxi Medical University</span><span lang="zh-CN">广西医科大学附属武鸣医院</span><div class="center-location"><small>Wuming, Nanning · 南宁武鸣</small><a href="https://uri.amap.com/search?keyword=广西医科大学附属武鸣医院&amp;city=南宁&amp;view=map&amp;src=ONCRN&amp;callnative=0" target="_blank" rel="noopener">Map / 高德地图 ↗</a></div></li>
+          <li data-city="qinzhou"><span>The Second People's Hospital of Qinzhou</span><span lang="zh-CN">钦州市第二人民医院</span><div class="center-location"><small>Qinzhou, Guangxi · 广西钦州</small><a href="https://uri.amap.com/search?keyword=钦州市第二人民医院&amp;city=钦州&amp;view=map&amp;src=ONCRN&amp;callnative=0" target="_blank" rel="noopener">Map / 高德地图 ↗</a></div></li>
+          <li data-city="wuzhou"><span>Wuzhou Gongren Hospital</span><span lang="zh-CN">梧州市工人医院</span><div class="center-location"><small>Wuzhou, Guangxi · 广西梧州</small><a href="https://uri.amap.com/search?keyword=梧州市工人医院&amp;city=梧州&amp;view=map&amp;src=ONCRN&amp;callnative=0" target="_blank" rel="noopener">Map / 高德地图 ↗</a></div></li>
+          <li data-city="yulin"><span>The First People's Hospital of Yulin</span><span lang="zh-CN">玉林市第一人民医院</span><div class="center-location"><small>Yulin, Guangxi · 广西玉林</small><a href="https://uri.amap.com/search?keyword=玉林市第一人民医院&amp;city=玉林&amp;view=map&amp;src=ONCRN&amp;callnative=0" target="_blank" rel="noopener">Map / 高德地图 ↗</a></div></li>
+          <li data-city="suzhou"><span>Lixiang Eye Hospital of Soochow University</span><span lang="zh-CN">苏州大学理想眼科医院</span><div class="center-location"><small>Suzhou, Jiangsu · 江苏苏州</small><a href="https://uri.amap.com/search?keyword=苏州大学理想眼科医院&amp;city=苏州&amp;view=map&amp;src=ONCRN&amp;callnative=0" target="_blank" rel="noopener">Map / 高德地图 ↗</a></div></li>
         </ol>
       </div>
     </section>

@@ -1,10 +1,11 @@
 :root { color-scheme: light; --ink: #202724; --muted: #52615b; --green: #215b4f; --rule: #d6dfda; --paper: #ffffff; --soft: #f3f6f4; --accent: #824958; }
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 html { scroll-padding-top: 24px; }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 16px; line-height: 1.75; letter-spacing: 0; }
 a { color: var(--green); text-underline-offset: 4px; text-decoration-thickness: 1px; }
 a:hover { color: var(--accent); }
-a:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
 p { margin: 0 0 1.2em; }
 h1, h2, h3 { margin: 0; line-height: 1.25; font-weight: 600; text-wrap: balance; overflow-wrap: anywhere; }
 h1 { max-width: 1000px; font-size: 42px; }
@@ -63,10 +64,38 @@ details { margin: 24px 0 36px; border-block: 1px solid var(--rule); padding-bloc
 summary { cursor: pointer; color: var(--green); }
 details p { margin-top: 18px; font-size: 14px; }
 .source-note { color: var(--muted); font-size: 13px; margin-top: 15px; margin-bottom: 8px; }
+.member-geography { margin-top: 34px; }
+.map-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; }
+.map-heading h3 { font-size: 20px; }
+.map-total { margin: 0; text-align: right; font-size: 13px; color: var(--muted); line-height: 1.6; }
+.map-regions { display: inline-flex; margin-block: 20px 14px; border: 1px solid var(--rule); border-radius: 4px; }
+.map-regions button { border: 0; border-right: 1px solid var(--rule); background: white; color: var(--green); padding: 9px 18px; font: inherit; font-size: 13px; line-height: 1.5; cursor: pointer; }
+.map-regions button:first-child { border-radius: 3px 0 0 3px; }
+.map-regions button:last-child { border-right: 0; border-radius: 0 3px 3px 0; }
+.map-regions button:hover { background: var(--soft); }
+.map-regions button[aria-pressed="true"] { color: white; background: var(--green); }
+#member-map { height: 430px; width: 100%; border: 1px solid var(--rule); border-radius: 4px; background: #eef1ed; isolation: isolate; font-family: inherit; }
+#member-map .leaflet-tile-pane { filter: saturate(.55); }
+.member-marker { background: var(--green); border: 3px solid white; border-radius: 50%; color: white; box-shadow: 0 1px 5px #20272455; text-align: center; font: 600 16px/32px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.member-cluster { background: var(--accent); }
+.leaflet-tooltip.city-label { background: white; color: var(--green); border: 1px solid var(--rule); border-radius: 3px; box-shadow: none; font-size: 12px; font-weight: 600; padding: 2px 6px; }
+.leaflet-tooltip.city-label::before { display: none; }
+.member-popup h3 { font-size: 16px; line-height: 1.4; text-wrap: initial; margin-bottom: 10px; }
+.member-popup ul { padding: 0; margin: 0; list-style: none; }
+.member-popup li + li { border-top: 1px solid var(--rule); margin-top: 10px; padding-top: 10px; }
+.member-popup a { font-size: 12px; line-height: 1.55; display: block; }
+.member-popup a span { display: block; }
+.member-popup a span[lang] { color: var(--muted); }
+.leaflet-container .leaflet-popup-content-wrapper { border-radius: 5px; }
+.leaflet-container a { color: var(--green); }
+.leaflet-container .leaflet-control-attribution { font-size: 10px; }
 .centers-list { list-style: none; padding: 0; margin: 26px 0; counter-reset: center; border-top: 1px solid var(--rule); }
-.centers-list li { counter-increment: center; display: grid; grid-template-columns: 32px minmax(0, 1.7fr) minmax(0, 1fr); gap: 20px; align-items: start; border-bottom: 1px solid var(--rule); padding: 17px 0; font-size: 15px; }
+.centers-list li { counter-increment: center; display: grid; grid-template-columns: 32px minmax(0, 1.5fr) minmax(0, 1fr) minmax(165px, .7fr); gap: 20px; align-items: start; border-bottom: 1px solid var(--rule); padding: 20px 0; font-size: 15px; }
 .centers-list li::before { content: counter(center, decimal-leading-zero); color: var(--accent); font-size: 12px; padding-top: 3px; }
 .centers-list [lang] { color: var(--muted); }
+.center-location { font-size: 12px; line-height: 1.6; }
+.center-location small { display: block; font-size: inherit; color: var(--muted); }
+.center-location a { display: inline-block; padding-block: 5px; }
 .leadership-section { background: #f5f3f4; }
 .leadership-list > div + div { margin-top: 30px; border-top: 1px solid #dfd7db; padding-top: 26px; }
 .leadership-list dt { color: var(--muted); font-size: 14px; margin-bottom: 12px; }
@@ -83,6 +112,7 @@ details p { margin-top: 18px; font-size: 14px; }
   .section-layout { grid-template-columns: 210px minmax(0, 1fr); gap: 35px; }
   .research-grid { column-gap: 35px; }
   .centers-list li { grid-template-columns: 24px minmax(0, 1.5fr) minmax(0, 1fr); gap: 14px; }
+  .center-location { grid-column: 2 / -1; display: flex; gap: 16px; align-items: center; }
 }
 @media (max-width: 640px) {
   .container { width: calc(100% - 36px); }
@@ -103,11 +133,19 @@ details p { margin-top: 18px; font-size: 14px; }
   .research-grid { grid-template-columns: 1fr; }
   .centers-list li { grid-template-columns: 24px minmax(0, 1fr); gap: 3px 12px; }
   .centers-list li [lang] { grid-column: 2; font-size: 14px; }
+  .center-location { grid-column: 2; flex-wrap: wrap; gap: 0 14px; }
+  .map-heading { align-items: start; gap: 15px; }
+  .map-heading h3 { font-size: 18px; }
+  .map-heading h3 span { font-size: 15px; }
+  .map-total { font-size: 11px; min-width: 105px; }
+  .map-regions { display: flex; }
+  .map-regions button { flex: 1; padding-inline: 5px; }
+  #member-map { height: 360px; }
   .footer-inner { flex-direction: column; gap: 24px; }
   .leadership-list dd { font-size: 20px; }
 }
 @media print {
-  .site-header nav, .skip-link, .site-footer nav { display: none; }
+  .site-header nav, .skip-link, .site-footer nav, .member-geography { display: none; }
   .container { width: 100%; }
   .section { padding-block: 24px; }
   .section-layout { grid-template-columns: 1fr; gap: 16px; }
