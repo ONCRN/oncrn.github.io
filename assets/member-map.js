@@ -48,18 +48,22 @@
     }
 
     const clusters = L.markerClusterGroup({
-      maxClusterRadius: 58,
+      maxClusterRadius: zoom => zoom <= 6 ? 100 : 45,
       showCoverageOnHover: false,
       animate: false,
       spiderfyOnMaxZoom: false,
       iconCreateFunction(cluster) {
-        const count = cluster.getAllChildMarkers().reduce((sum, marker) => sum + marker.options.memberCount, 0);
+        const children = cluster.getAllChildMarkers();
+        const count = children.reduce((sum, marker) => sum + marker.options.memberCount, 0);
+        const regions = new Set(children.map(marker => marker.options.region));
+        const label = regions.size === 1 ? (regions.has("guangxi") ? "Guangxi 广西" : "Jiangsu 江苏") : "ONCRN";
         const icon = countIcon(count, true);
-        icon.options.html = `<span aria-label="${count} member institutions / ${count}家成员单位">${count}</span>`;
+        icon.options.html = `<span aria-label="${count} member institutions / ${count}家成员单位">${count}</span><small>${label}</small>`;
         return icon;
       }
     }).addTo(map);
 
+    const popupWidth = () => Math.min(300, Math.max(150, map.getSize().x - 96));
     const markers = cities.map(city => {
       const members = [...section.querySelectorAll(`.centers-list li[data-city="${city.id}"]`)];
       const popup = document.createElement("div");
@@ -88,10 +92,12 @@
         memberCount: members.length,
         region: city.region
       }).bindTooltip(`${city.name} ${city.zh}`, { permanent: true, direction: "bottom", offset: [0, 18], className: "city-label" })
-        .bindPopup(popup, { maxWidth: 300, minWidth: 200, maxHeight: 210, autoPanPadding: [24, 24] });
+        .bindPopup(popup, { maxWidth: popupWidth(), minWidth: Math.min(180, popupWidth()), maxHeight: 210, autoPanPadding: [24, 24] });
     });
 
+    let activeRegion = "all";
     function showRegion(region) {
+      activeRegion = region;
       const visible = markers.filter(marker => region === "all" || marker.options.region === region);
       map.closePopup();
       clusters.clearLayers();
@@ -106,6 +112,13 @@
 
     shell.querySelectorAll("[data-region]").forEach(button => {
       button.addEventListener("click", () => showRegion(button.dataset.region));
+    });
+    map.on("resize", () => {
+      markers.forEach(marker => {
+        marker.getPopup().options.maxWidth = popupWidth();
+        marker.getPopup().options.minWidth = Math.min(180, popupWidth());
+      });
+      showRegion(activeRegion);
     });
     showRegion("all");
   }
