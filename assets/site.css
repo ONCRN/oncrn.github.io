@@ -20,9 +20,9 @@ dl, dd { margin: 0; }
 .skip-link:focus { top: 10px; }
 .site-header { border-top: 5px solid var(--green); border-bottom: 1px solid var(--rule); }
 .header-inner { display: flex; justify-content: space-between; gap: 32px; align-items: center; padding-block: 19px; }
-.wordmark { display: inline-flex; align-items: center; gap: 12px; flex-shrink: 0; text-decoration: none; color: var(--ink); font-size: 23px; font-weight: 650; }
-.wordmark img { width: 40px; height: 40px; }
-.site-header nav { display: flex; gap: 25px; align-items: center; flex-wrap: wrap; }
+.wordmark { display: inline-flex; align-items: center; flex-shrink: 0; text-decoration: none; width: 198px; }
+.wordmark img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 1; }
+.site-header nav { display: flex; gap: 22px; align-items: center; flex-wrap: wrap; }
 .site-header nav a { display: block; font-size: 14px; text-decoration: none; line-height: 1.5; padding-block: 6px; }
 .site-header nav span { display: block; font-size: 12px; color: var(--muted); }
 .section { padding-block: 64px; border-bottom: 1px solid var(--rule); }
@@ -62,7 +62,6 @@ dl, dd { margin: 0; }
 details { margin: 24px 0 36px; border-block: 1px solid var(--rule); padding-block: 16px; }
 summary { cursor: pointer; color: var(--green); }
 details p { margin-top: 18px; font-size: 14px; }
-.centers-heading { margin-top: 40px; }
 .source-note { color: var(--muted); font-size: 13px; margin-top: 15px; margin-bottom: 8px; }
 .centers-list { list-style: none; padding: 0; margin: 26px 0; counter-reset: center; border-top: 1px solid var(--rule); }
 .centers-list li { counter-increment: center; display: grid; grid-template-columns: 32px minmax(0, 1.7fr) minmax(0, 1fr); gap: 20px; align-items: start; border-bottom: 1px solid var(--rule); padding: 17px 0; font-size: 15px; }
@@ -88,6 +87,7 @@ details p { margin-top: 18px; font-size: 14px; }
 @media (max-width: 640px) {
   .container { width: calc(100% - 36px); }
   .header-inner { flex-direction: column; gap: 10px; padding-block: 14px; }
+  .wordmark { width: 180px; }
   .site-header nav { width: 100%; justify-content: space-between; gap: 4px 10px; }
   .site-header nav a { font-size: 12px; }
   .site-header nav span { font-size: 11px; }

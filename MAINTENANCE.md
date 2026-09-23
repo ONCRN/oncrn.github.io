@@ -4,9 +4,10 @@ This repository publishes the official website of the Optic Neuritis Collaborati
 
 ## Structure
 
-- `index.html`: bilingual Home, About, Research, GX-ICON, and Leadership sections, with all substantive content available without JavaScript.
+- `index.html`: bilingual Home, About, Research, GX-ICON, Members, and Leadership sections, with all substantive content available without JavaScript.
 - `assets/site.css`: responsive layout and print styles; system fonts only.
-- `assets/network-mark.png`: original geometric research-network motif; not a hospital logo or clinical image.
+- `assets/oncrn-e1-wordmark.png`: approved E1 serif wordmark, with a forest-green crescent in the O and charcoal lettering; transparent PNG.
+- `assets/oncrn-e1-symbol.png`: companion O symbol for the browser icon and touch icon.
 - `.nojekyll`: publishes the static files without a Jekyll transformation.
 - `README.md`: concise public repository introduction.
 
@@ -14,7 +15,7 @@ Preserve the organization handle, repository name, existing Git history, and Pag
 
 ## Content and source verification
 
-Network positioning and leadership follow the information supplied by the Network Lead for this update. The research areas describe the network's scope, not a claim that all listed study types are already active.
+Network positioning, leadership, research priorities, and the current member-institution list follow the information supplied and approved by the Network Lead. Membership is maintained separately from the GX-ICON study registry. The E1 logo was selected by the Network Lead from the wordmark concepts and prepared as website assets with the built-in image generation tool.
 
 GX-ICON was checked against the [ClinicalTrials.gov public record](https://clinicaltrials.gov/study/NCT07623252) and its [structured record](https://clinicaltrials.gov/api/v2/studies/NCT07623252) on 2026-09-23. The latest update posted was 2026-06-15. Nine location names were verified; English names are reproduced as registered. The shorter website study heading is descriptive; the exact registered official title is available in its expandable detail.
 
@@ -28,7 +29,7 @@ Chinese center names follow the user-confirmed list and were cross-checked where
 - [Lixiang Eye Hospital of Soochow University](https://www.lxeye.org.cn/)
 - [The Second People's Hospital of Qinzhou institutional entry, National Population Health Science Data Center](https://csp.ncmi.cn/UsersInfo/UserUnit/UserUnitDetailWeb?uid=01409)
 
-The Qinzhou and Wuzhou hospital homepages did not respond during verification. Their Chinese names are consistent with the supplied list and the institutional sources above. Do not describe registered GX-ICON locations as formal ONCRN members or co-founders without separate confirmation.
+The Qinzhou and Wuzhou hospital homepages did not respond during verification. Their Chinese names are consistent with the supplied list and the institutional sources above.
 
 ## Before publishing
 
