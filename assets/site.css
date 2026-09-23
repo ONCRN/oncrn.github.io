@@ -140,10 +140,14 @@ details p { margin-top: 18px; font-size: 14px; }
   .map-heading h3 span { font-size: 15px; }
   .map-total { font-size: 11px; min-width: 105px; }
   .map-regions { display: flex; }
-  .map-regions button { flex: 1; padding-inline: 5px; }
+  .map-regions button { flex: 1 1 0; min-width: 0; padding-inline: 4px; font-size: 12px; white-space: nowrap; }
   #member-map { height: 360px; }
   .footer-inner { flex-direction: column; gap: 24px; }
   .leadership-list dd { font-size: 20px; }
+}
+@media (max-width: 380px) {
+  .map-heading { display: block; }
+  .map-total { text-align: left; margin-top: 12px; font-size: 12px; }
 }
 @media print {
   .site-header nav, .skip-link, .site-footer nav, .member-geography { display: none; }
