@@ -27,7 +27,7 @@ dl, dd { margin: 0; }
 .site-header nav a { display: block; font-size: 14px; text-decoration: none; line-height: 1.5; padding-block: 6px; }
 .site-header nav span { display: block; font-size: 12px; color: var(--muted); }
 .section { padding-block: 64px; border-bottom: 1px solid var(--rule); }
-.intro { padding-block: 42px 34px; }
+.intro { padding-block: 42px 34px; scroll-margin-top: 220px; }
 .eyebrow { margin: 0 0 15px; font-size: 12px; font-weight: 650; color: var(--accent); }
 .chinese-name { font-size: 25px; margin: 17px 0 22px; color: var(--green); }
 .lead { max-width: 920px; font-size: 20px; line-height: 1.55; margin-bottom: 12px; }
