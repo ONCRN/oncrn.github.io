@@ -50,3 +50,5 @@ Institution names and map-query links live in `index.html`; map popups read that
 ## Before publishing
 
 Review English and Chinese together. Check registry dates and center names against the live registry. Test navigation anchors, external registry links, mobile layouts, UTF-8 text, and absence of personal contact details. Append a normal Git commit, then confirm the existing Pages build succeeds and the published HTML matches the new commit.
+
+Increment the `v` query parameter on the local site stylesheet and map script in `index.html` when changing their layout or behavior, so returning visitors do not combine fresh HTML with stale cached assets.
