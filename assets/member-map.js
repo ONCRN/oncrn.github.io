@@ -23,7 +23,7 @@
       zoomControl: false,
       attributionControl: true
     });
-    L.control.zoom({ position: "topright" }).addTo(map);
+    L.control.zoom({ position: "bottomright" }).addTo(map);
     map.attributionControl.setPrefix('<a href="https://leafletjs.com/">Leaflet</a>');
 
     const status = document.querySelector("#map-status");
