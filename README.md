@@ -38,14 +38,14 @@ Current member institutions of ONCRN are listed below.
 | Institution | 中文名称 |
 | --- | --- |
 | The First Affiliated Hospital of Guangxi Medical University | 广西医科大学第一附属医院 |
-| The Second Affiliated Hospital of Guangxi Medical University | 广西医科大学第二附属医院 |
-| Guangxi Minzu Hospital | 广西壮族自治区民族医院 |
-| Guangxi Jingliang Eye Hospital | 广西晶亮眼科医院 |
-| Wuming Hospital of Guangxi Medical University | 广西医科大学附属武鸣医院 |
-| The Second People's Hospital of Qinzhou | 钦州市第二人民医院 |
 | Wuzhou Gongren Hospital | 梧州市工人医院 |
 | The First People's Hospital of Yulin | 玉林市第一人民医院 |
+| The Second Affiliated Hospital of Guangxi Medical University | 广西医科大学第二附属医院 |
+| The Second People's Hospital of Qinzhou | 钦州市第二人民医院 |
+| Guangxi Minzu Hospital | 广西壮族自治区民族医院 |
+| Wuming Hospital of Guangxi Medical University | 广西医科大学附属武鸣医院 |
 | Lixiang Eye Hospital of Soochow University | 苏州大学理想眼科医院 |
+| Guangxi Jingliang Eye Hospital | 广西晶亮眼科医院 |
 
 [Member-location map / 成员单位分布地图](https://oncrn.github.io/#members)
 
