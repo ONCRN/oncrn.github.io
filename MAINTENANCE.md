@@ -1,6 +1,6 @@
 # Website maintenance
 
-This repository publishes the official website of the Optic Neuritis Collaborative Research Network (ONCRN), 视神经炎研究协作网络, at https://oncrn.github.io/.
+This repository publishes the official website of the Optic Neuritis Collaborative Research Network (ONCRN), 视神经炎研究协作网络, at https://oncrn.org/.
 
 ## Structure
 
@@ -14,7 +14,13 @@ This repository publishes the official website of the Optic Neuritis Collaborati
 - `.nojekyll`: publishes the static files without a Jekyll transformation.
 - `README.md`: concise public repository introduction.
 
-Preserve the organization handle, repository name, existing Git history, and Pages address. No framework, package installation, or build step is required. The existing GitHub Pages branch deployment should continue to publish the repository root.
+Preserve the organization handle, repository name, and existing Git history. The original https://oncrn.github.io/ address redirects to the custom domain. No framework, package installation, or build step is required. The existing GitHub Pages branch deployment should continue to publish the repository root.
+
+## Custom domain
+
+`CNAME` contains `oncrn.org`, configured in the repository's GitHub Pages settings. Keep this file when publishing. Spaceship DNS points the apex (`@`) to GitHub Pages with four A records: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, and `185.199.111.153`. The `www` CNAME points to `oncrn.github.io`; GitHub Pages redirects it to the apex domain.
+
+Keep the `_github-pages-challenge-ONCRN` TXT record in Spaceship DNS to retain organization-level domain verification. Certificate issuance and HTTPS enforcement are managed in GitHub Pages settings. No paid hosting or URL-forwarding service is required.
 
 ## Content and source verification
 
