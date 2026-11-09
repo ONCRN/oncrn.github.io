@@ -6,7 +6,8 @@ This repository publishes the official website of the Optic Neuritis Collaborati
 
 - `index.html`: bilingual Home, About, Research, GX-ICON, Members, and Leadership sections, with all substantive content available without JavaScript.
 - `assets/site.css`: responsive layout and print styles; system fonts only.
-- `assets/oncrn-e1-wordmark.png`: approved E1 serif wordmark, with a forest-green crescent in the O and charcoal lettering; transparent PNG.
+- `assets/oncrn-bilingual-domain-wordmark.png`: approved A-style header wordmark, with the simplified Chinese name in Song type and `oncrn.org` to its right; white-background PNG.
+- `assets/oncrn-e1-wordmark.png`: original E1 serif wordmark, retained as a source asset; transparent PNG.
 - `assets/oncrn-e1-symbol.png`: companion O symbol for the browser icon and touch icon.
 - `assets/member-map.js`: progressively enhanced member-location map, initialized when the Members section approaches the viewport.
 - `assets/vendor/`: locally hosted Leaflet 1.9.4 (BSD-2-Clause) and Leaflet.markercluster 1.5.3 (MIT), with their licenses.
@@ -17,7 +18,7 @@ Preserve the organization handle, repository name, existing Git history, and Pag
 
 ## Content and source verification
 
-Network positioning, leadership, research priorities, and the current member-institution list follow the information supplied and approved by the Network Lead. Membership is maintained separately from the GX-ICON study registry. The E1 logo was selected by the Network Lead from the wordmark concepts and prepared as website assets with the built-in image generation tool.
+Network positioning, leadership, research priorities, and the current member-institution list follow the information supplied and approved by the Network Lead. Membership is maintained separately from the GX-ICON study registry. The E1 logo was selected by the Network Lead from the wordmark concepts and prepared as website assets with the built-in image generation tool. The bilingual A-style variant with the domain beside the Chinese name was approved on 2026-11-09; the browser icon remains the original O symbol.
 
 GX-ICON was checked against the [ClinicalTrials.gov public record](https://clinicaltrials.gov/study/NCT07623252) and its [structured record](https://clinicaltrials.gov/api/v2/studies/NCT07623252) on 2026-09-23. The latest update posted was 2026-06-15. Nine location names were verified; English names are reproduced as registered. The shorter website study heading is descriptive; the exact registered official title is available in its expandable detail.
 

@@ -21,7 +21,7 @@ dl, dd { margin: 0; }
 .skip-link:focus { top: 10px; }
 .site-header { border-top: 5px solid var(--green); border-bottom: 1px solid var(--rule); }
 .header-inner { display: flex; justify-content: space-between; gap: 32px; align-items: center; padding-block: 19px; }
-.wordmark { display: inline-flex; align-items: center; flex-shrink: 0; text-decoration: none; width: 198px; }
+.wordmark { display: inline-flex; align-items: center; flex-shrink: 0; text-decoration: none; width: 360px; max-width: 100%; }
 .wordmark img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 1; }
 .site-header nav { display: flex; gap: 22px; align-items: center; flex-wrap: wrap; }
 .site-header nav a { display: block; font-size: 14px; text-decoration: none; line-height: 1.5; padding-block: 6px; }
@@ -118,7 +118,7 @@ details p { margin-top: 18px; font-size: 14px; }
 @media (max-width: 640px) {
   .container { width: calc(100% - 36px); }
   .header-inner { flex-direction: column; gap: 10px; padding-block: 14px; }
-  .wordmark { width: 180px; }
+  .wordmark { width: 320px; }
   .site-header nav { width: 100%; justify-content: space-between; gap: 4px 10px; }
   .site-header nav a { font-size: 12px; }
   .site-header nav span { font-size: 11px; }
