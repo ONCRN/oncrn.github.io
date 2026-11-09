@@ -12,6 +12,8 @@ This repository publishes the official website of the Optic Neuritis Collaborati
 - `assets/member-map.js`: progressively enhanced member-location map, initialized when the Members section approaches the viewport.
 - `assets/vendor/`: locally hosted Leaflet 1.9.4 (BSD-2-Clause) and Leaflet.markercluster 1.5.3 (MIT), with their licenses.
 - `.nojekyll`: publishes the static files without a Jekyll transformation.
+- `sitemap.xml`: lists the canonical homepage for search engines.
+- `robots.txt`: allows crawling and provides the sitemap URL.
 - `README.md`: concise public repository introduction.
 
 Preserve the organization handle, repository name, and existing Git history. The original https://oncrn.github.io/ address redirects to the custom domain. No framework, package installation, or build step is required. The existing GitHub Pages branch deployment should continue to publish the repository root.
@@ -21,6 +23,12 @@ Preserve the organization handle, repository name, and existing Git history. The
 `CNAME` contains `oncrn.org`, configured in the repository's GitHub Pages settings. Keep this file when publishing. Spaceship DNS points the apex (`@`) to GitHub Pages with four A records: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, and `185.199.111.153`. The `www` CNAME points to `oncrn.github.io`; GitHub Pages redirects it to the apex domain.
 
 Keep the `_github-pages-challenge-ONCRN` TXT record in Spaceship DNS to retain organization-level domain verification. Certificate issuance and HTTPS enforcement are managed in GitHub Pages settings. No paid hosting or URL-forwarding service is required.
+
+## Search discovery
+
+The site is a single HTML page. Its sitemap lists only `https://oncrn.org/`; section fragments such as `#about` and `#members` are not separate pages. Add canonical HTTPS URLs to `sitemap.xml` only when new standalone public pages are published. Optional `lastmod` values are omitted to avoid publishing inaccurate modification dates.
+
+Submit `https://oncrn.org/sitemap.xml` in the `oncrn.org` Domain property in Google Search Console. DNS verification uses a separate `google-site-verification` TXT record at the apex; retain that record after verification and do not replace the GitHub verification record. Verification and sitemap submission help Google discover the site but do not guarantee indexing or ranking. No analytics or visitor-tracking script is required.
 
 ## Content and source verification
 
